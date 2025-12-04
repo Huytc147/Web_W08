@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-
+    sRIl4kxlFVY47J16CRZWB07VP4J8+LH7QKQnqukIAvNWLZeN8tE5YBuJzqJLB"
+    crossorigin="anonymous">
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-
+    FkYofEForCgLyvwx9hj09Jcyv3ny7wiPVlZ7YYWjrWVcXK/BmnVDxM+D2scQbITxl"
+    crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row mt-2 mx-1">
+      {{> nav}}
+    </div>
+    <div class="row mt-2 mx-1">
+      <div class="col-12 bg-primary bg-gradient bg-opacity-25 rounded p-3">
+        {{{body}}}
+      </div>
+    </div>
+    <div class="row mt-2 mx-1">
+      {{> footer}}
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<nav
+  class="navbar bg-info bg-gradient bg-opacity-25 p-3 rounded d-flex align-items-center"
+>
+  <a href="/" class="navbar-brand me-3">Home</a>
+
+  <div class="ms-auto d-flex align-items-center">
+    <ul class="nav me-3">
+      <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Management</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+      <li class="nav-item"><a class="nav-link" href="/ajax">Ajax</a></li>
+    </ul>
+
+    {{#unless user}}
+      <a class="btn btn-outline-primary" href="/auth/login">
+        Login
+      </a>
+    {{/unless}}
+
+    {{#if user}}
+      <div class="nav-item dropdown ms-3 d-flex align-items-center">
+        <a
+          class="nav-link bg-info bg-gradient bg-opacity-50 dropdown-toggle d-flex align-items-center"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{#if user.avatarUrl}}
+            <img
+              src="{{user.avatarUrl}}"
+              alt="{{user.username}}"
+              class="rounded-circle"
+              style="width: 32px; height: 32px;"
+            />
+          {{else}}
+            <span
+              class="badge rounded-circle d-inline-flex justify-content-center align-items-center bg-warning text-dark"
+              style="width: 32px; height: 32px;"
+            >
+              {{user.initials}}
+            </span>
+          {{/if}}
+          <span class="ms-2">
+            {{user.username}}
+          </span>
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <span class="dropdown-item-text text-start fw-semibold">
+              {{user.name}}
+            </span>
+          </li>
+          <li>
+            <span class="dropdown-item-text text-muted small">
+              {{user.email}}
+            </span>
+          </li>
+          <li><hr class="dropdown-divider" /></li>
+          <li>
+            <a class="dropdown-item text-danger" href="/auth/logout">
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    {{/if}}
+  </div>
+</nav>

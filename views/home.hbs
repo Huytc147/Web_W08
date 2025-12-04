@@ -1,0 +1,53 @@
+<style>
+
+  .product-img-wrapper { width: 100%; aspect-ratio: 1 / 1; overflow: hidden;
+  display: flex; justify-content: center; align-items: center; background-color:
+  #f8f9fa; / padding: 8px; border-bottom: 1px solid #eee; } .product-img-wrapper
+  img { max-width: 100%; max-height: 100%; object-fit: contain; } .row.g-4 .col
+  { display: flex; } .card.h-100 { display: flex; flex-direction: column;
+  box-shadow: 0 2px 4px #0000000d; } .card-body { flex-grow: 1; padding-top:
+  10px; padding-bottom: 10px; } .card-footer { margin-top: auto; padding: 8px
+  10px; } .card-title, .card-text { overflow: hidden; text-overflow: ellipsis;
+  display: -webkit-box; -webkit-box-orient: vertical; margin-bottom: 0.5rem; }
+  .card-title { -webkit-line-clamp: 2; min-height: 2.5em; font-size: 1.1em; }
+  .card-text { -webkit-line-clamp: 2; font-size: 0.9em; }
+</style>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+  {{#each products}}
+
+    <div class="col">
+
+      <div class="card h-100">
+
+        <div class="product-img-wrapper">
+
+          <img
+            src="/imgs/p{{this.id}}.png"
+            class="card-img-top"
+            alt="{{this.title}}"
+            onerror="this.src='/imgs/placeholder.png'"
+          />
+        </div>
+
+        <div class="card-body">
+
+          <h5 class="card-title">{{this.title}}</h5>
+
+          <p class="card-text">{{this.description}}</p>
+
+        </div>
+
+        <div class="card-footer text-center">
+
+          <a href="/products/{{this.id}}" class="btn btn-primary">Xem chi tiết</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  {{/each}}
+</div>
